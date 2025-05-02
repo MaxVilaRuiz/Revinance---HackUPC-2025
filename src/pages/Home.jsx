@@ -9,7 +9,7 @@ function Home() {
       <main>
         <h1 className="text-[5rem] font-bold">Hello world</h1>
       </main>
-      <Link to="/login">Hello</Link>
+      <Link to="/login">Login</Link>
       <Link to="/dashboard">Dashboard</Link>
     </div>
   );
