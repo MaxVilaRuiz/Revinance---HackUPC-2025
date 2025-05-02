@@ -20,12 +20,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-        </Route>
-
-        {/* RUTAS PRIVADAS */}
-        <Route element={<PrivateLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
+
+        {/* RUTAS PRIVADAS
+        <Route element={<PrivateLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route> */}
 
       </Routes>
     </Router>
