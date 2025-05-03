@@ -13,7 +13,7 @@ function Register() {
   const handleRegister = async (e) => {
     const pw1 = document.getElementById('password1');
     const pw2 = document.getElementById('password2');
-    if (pw1 !== pw2) alert('Passwords must be the same.');
+    if (pw1.value !== pw2.value) alert('Passwords must be the same.');
     else {
       e.preventDefault();
       let result = await fetch(
