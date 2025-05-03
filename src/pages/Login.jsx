@@ -1,8 +1,14 @@
-import React, { use, useEffect } from 'react';
+import React, { use, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
+import { pass } from 'three/tsl';
 
 function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
   useEffect(() => {
     let singedOut = localStorage.getItem('singout');
     if(singedOut) {
@@ -12,6 +18,30 @@ function Login() {
       localStorage.removeItem('singout');
     }
   });
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    let result = await fetch(
+    'http://localhost:5000/login', {
+        method: "post",
+        body: JSON.stringify({ email, password }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+      
+    const data = await result.json();
+    console.log(result.status);
+
+    if(result.status === 201) {
+      alert("Data manipuled correctly!");
+      navigate('/dash/home_');
+    } else if(result.status === 409) { 
+      alert(data.message);
+    } else {
+      alert("Something went wrong X(");
+    }
+  }
 
   return (
     <div className="bg-green-500 h-screen flex flex-col justify-center items-center">
@@ -24,12 +54,14 @@ function Login() {
           {/* Título dentro del contenedor verde */}
           <h1 className="text-4xl font-extrabold text-green-900 drop-shadow text-center mt-5 mb-20">Log In</h1>
           
-          <form className="w-full">
+          <form onSubmit={handleLogin} className="w-full">
             <div className="mb-4">
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Email</label>
               <input
                 type="email"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="name@gmail.com"
                 required
@@ -40,6 +72,8 @@ function Login() {
               <input
                 type="password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 required
               />
