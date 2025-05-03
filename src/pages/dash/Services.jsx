@@ -53,15 +53,15 @@ function Services() {
   
     document.getElementById('income').innerText = income;
     document.getElementById('rent1').innerText = rent;
-    document.getElementById('rent2').innerText = rent2.toFixed(0);
+    document.getElementById('rent2').innerText = rent2.toFixed(0) + '%';
     document.getElementById('household1').innerText = household;
-    document.getElementById('household2').innerText = household2.toFixed(0);
+    document.getElementById('household2').innerText = household2.toFixed(0) + '%';
     document.getElementById('living1').innerText = living;
-    document.getElementById('living2').innerText = living2.toFixed(0);
+    document.getElementById('living2').innerText = living2.toFixed(0) + '%';
     document.getElementById('extras1').innerText = extras;
-    document.getElementById('extras2').innerText = extras2.toFixed(0);
+    document.getElementById('extras2').innerText = extras2.toFixed(0) + '%';
     document.getElementById('saved1').innerText = saved;
-    document.getElementById('saved2').innerText = saved2.toFixed(0);
+    document.getElementById('saved2').innerText = saved2.toFixed(0) + '%';
   }, []);
 
   return (
@@ -116,14 +116,14 @@ function Services() {
       </nav>
 
       <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
-        <h1 className="text-[3.75rem] font-bold mb-10 text-blue-800 bg-clip-text">Services</h1>
+        <h1 className="text-[3.75rem] font-bold mb-0 text-blue-800 bg-clip-text">Services</h1>
 
-        <div className="mb-24">
+        <div className="mb-14">
           <PieDiagram></PieDiagram>
         </div>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table class="w-[750px] h-auto text-sm text-left rtl:text-right text-gray-400">
+          <table class="w-[800px] h-auto text-sm text-left rtl:text-right text-gray-400">
             <thead class="text-center text-xs uppercase bg-gray-700 text-gray-400">
               <tr>
                 <th scope="col" class="px-6 py-3">
@@ -170,8 +170,8 @@ function Services() {
                 </td>
                 <td id='rent3' class="px-6 py-4">
                 </td>
-                <td class="px-6 py-4">
-                  <div id='rent4' style="width: 30px; height: 30px; border-radius: 50%; background-color: gray;"></div>
+                <td class="flex justify-center px-6 py-4">
+                  <div id='rent4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
                 </td>
               </tr>
               <tr class="text-center border-b border-gray-700 bg-gray-800 hover:bg-gray-600">
@@ -184,8 +184,8 @@ function Services() {
                 </td>
                 <td id='household3' class="px-6 py-4">
                 </td>
-                <td class="px-6 py-4">
-                  <div id='household4' style="width: 30px; height: 30px; border-radius: 50%; background-color: gray;"></div>
+                <td class="flex justify-center px-6 py-4">
+                  <div id='household4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
                 </td>
               </tr>
               <tr class="text-center border-b border-gray-700 bg-gray-800 hover:bg-gray-600">
@@ -198,8 +198,8 @@ function Services() {
                 </td>
                 <td id='living3' class="px-6 py-4">
                 </td>
-                <td class="px-6 py-4">
-                  <div id='living4' style="width: 30px; height: 30px; border-radius: 50%; background-color: gray;"></div>
+                <td class="flex justify-center px-6 py-4">
+                  <div id='living4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
                 </td>
               </tr>
               <tr class="text-center border-b border-gray-700 bg-gray-800 hover:bg-gray-600">
@@ -212,8 +212,8 @@ function Services() {
                 </td>
                 <td id='extras3' class="px-6 py-4">
                 </td>
-                <td class="px-6 py-4">
-                  <div id='extras4' style="width: 30px; height: 30px; border-radius: 50%; background-color: gray;"></div>
+                <td class="flex justify-center px-6 py-4">
+                  <div id='extras4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
                 </td>
               </tr>
               <tr class="text-center border-b border-gray-700 bg-gray-800 hover:bg-gray-600">
@@ -226,8 +226,8 @@ function Services() {
                 </td>
                 <td id='saved3' class="px-6 py-4">
                 </td>
-                <td class="px-6 py-4">
-                  <div id='saved4' style="width: 30px; height: 30px; border-radius: 50%; background-color: gray;"></div>
+                <td class="flex justify-center px-6 py-4">
+                  <div id='saved4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
                 </td>
               </tr>
             </tbody>

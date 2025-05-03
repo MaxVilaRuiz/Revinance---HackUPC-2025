@@ -1,15 +1,27 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import React, { useEffect, useState } from 'react';
 
-const data = [
-  { name: 'Ahorros', value: 40 },
-  { name: 'Gastos', value: 30 },
-  { name: 'Inversiones', value: 20 },
-  { name: 'Otros', value: 10 },
-];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF0000'];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+export default function PieDiagram() {
+  const [data, setData] = useState([]);
 
-export default function PieChartComponent() {
+  useEffect(() => {
+    const saves = Number(localStorage.getItem('saved') || 0);
+    const rent = Number(localStorage.getItem('rent') || 0);
+    const household = Number(localStorage.getItem('household') || 0);
+    const living = Number(localStorage.getItem('living') || 0);
+    const extras = Number(localStorage.getItem('extras') || 0);
+    const primary = household + living;
+
+    setData([
+      { name: 'Saves', value: saves },
+      { name: 'Rent', value: rent },
+      { name: 'Primary expenses', value: primary },
+      { name: 'Leisure expenses', value: extras },
+    ]);
+  }, []);
+
   return (
     <PieChart width={400} height={400}>
       <Pie
