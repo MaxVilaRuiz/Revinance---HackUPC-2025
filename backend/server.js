@@ -1,13 +1,7 @@
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const cors = require("cors");
-// const axios = require("axios");
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import axios from 'axios';
 import dotenv from 'dotenv';
-// require('dotenv').config();
 import OpenAI from 'openai';
 
 dotenv.config();
@@ -97,23 +91,6 @@ const client = new OpenAI({
 app.post("/chat", async (req, res) => {
     const { messages } = req.body;
     try {
-        // const response = await axios.post(
-        //     'https://api.openai.com/v1/chat/completions',
-        //     {
-        //         model: 'gpt-4o-mini',
-        //         messages: [{role: 'user', content: req.body.input}],
-        //     },
-        //     {
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': `Bearer ${process.env.CHATGPT_API_KEY}`,
-        //         }
-        //     }
-        // );
-        
-        // console.log('OPENAI SAYS: ' + response.data.choices[0].message);
-        // res.json(response.data.choices[0].message);
-
         const response = await client.responses.create({
             model: 'gpt-4o-mini',
             instructions: 'You are an expert in financial advice.',
@@ -121,6 +98,7 @@ app.post("/chat", async (req, res) => {
         });
 
         console.log(response.output_text);
+        res.status(200).json(response.output_text);
     } catch (error) {
         console.error('OpenAI API Error:', error.response?.data || error.message);
         res.status(500).send('ChatGPT error');

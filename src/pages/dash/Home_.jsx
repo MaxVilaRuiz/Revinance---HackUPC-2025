@@ -16,17 +16,21 @@ function Home_() {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:5000/chat', {
-      method: "post",
-      body: JSON.stringify({input}),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    console.log(res);
-
-    //setResponse(res.choices[0].message.content);
+    try {
+      const res = await fetch('http://localhost:5000/chat', {
+        method: "post",
+        body: JSON.stringify({input}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      const data = await res.json();
+      setResponse(data);
+    } catch (err) {
+      console.error(err);
+      setResponse('Error: Failed to get response from LLM.');
+    }
   };
 
 
