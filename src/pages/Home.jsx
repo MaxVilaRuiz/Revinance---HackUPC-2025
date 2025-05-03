@@ -41,7 +41,26 @@ function Home() {
       </nav>
 
       <main>
-        <p className="text-red-400 text-center text-[5rem] font-bold">Plantinance</p>
+        <p className="text-blue-700 text-center text-[5rem] font-medium">Plantinance</p>
+        <p className= "mt-8 text-[1.5rem] text-center font-medium mb-8" >If you are looking for a way to achieve your financial goals, but you are having problems with that, this is your place!</p>
+        <div className="bg-blue-700 w-128 h-[42rem] pt-4 px-4" >
+          <div className="flex">
+          <div className="flex-1">
+          <p className="text-white text-[1.5rem] text-left mt-12 ml-16 font-medium"> Use our innovative method to save money for your future, where you will </p>
+          <p className="text-white text-[1.5rem] text-left mt-4 ml-16 font-medium"> have to obtaing experience to level up your bonsai. Play minigames and  </p>
+          <p className="text-white text-[1.5rem] text-left mt-4 ml-16 font-medium"> complete the economic achievements that you will set for yourself, and </p>
+          <p className="text-white text-[1.5rem] text-left mt-4 ml-16 font-medium"> your bonsai will be happy!  </p>
+          <p className="text-white text-[1.5rem] text-left mt-4 ml-16 font-medium"> Control your money expenses in a creative and interactive way. If you don't complete </p>
+          <p className="text-white text-[1.5rem] text-left mt-4 ml-16 font-medium"> your goals, you will lose the points that you have had earned, and you would lose  </p>
+          <p className="text-white text-[1.5rem] text-left mt-4 ml-16 font-medium"> some of your plant options, but if you achieve the savings that you previusly wanted,</p>
+          <p className="text-white text-[1.5rem] text-left mt-4 ml-16 font-medium">  it will grow, and you will be able to play with it. </p>
+
+          </div>
+
+          <img src={bonsai} alt="Bonsai" className="ml-20 mr-10 w-128 h-auto"/>
+
+          </div>
+        </div>
       </main>
     </div>
   );
