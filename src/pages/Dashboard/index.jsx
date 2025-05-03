@@ -1,11 +1,12 @@
 import React from 'react';
 import '../../styles/App.css';
+import MainScene from '../../components/main3d.jsx';
 
 function Dashboard() {
   return (
     <div>
       <main>
-        <h1 className="text-[5rem] font-bold">Dashboard</h1>
+        <MainScene />
       </main>
     </div>
   );
