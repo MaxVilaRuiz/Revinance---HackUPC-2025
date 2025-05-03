@@ -8,6 +8,14 @@ function Profile() {
   const navigate = useNavigate();
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
+  const [income, setIncome] = useState('');
+  const [rent, setRent] = useState('');
+  const [household, setHousehold] = useState('');
+  const [living, setLiving] = useState('');
+  const [extras, setExtras] = useState('');
+  const [saved, setSaved] = useState('');
+  const [wsave, setWsave] = useState('');
+  const [amount, setAmount] = useState('');
 
   const handleLogout = () => {
     localStorage.setItem('singout', true);
@@ -27,6 +35,31 @@ function Profile() {
     const question2 = document.getElementById('question2');
     question2.classList.contains('hidden') ? question2.classList.remove('hidden') : question2.classList.add('hidden');
   };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    let result = await fetch(
+    'http://localhost:5000/profile', {
+        method: "post",
+        body: JSON.stringify({ income, rent, household, living, extras, saved, wsave, amount }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+      
+    const data = await result.json();
+    console.log(result.status);
+
+    if(result.status === 201) {
+      alert("Data manipuled correctly!");
+    } else if(result.status === 409) { 
+      alert(data.message);
+    } else if(result.status === 400) {
+      alert(data.message);
+    } else {
+      alert("Something went wrong X(");
+    }
+  }
 
   return (
     <div className="flex w-full h-screen justify-center">
@@ -88,46 +121,56 @@ function Profile() {
               <h3 className="font-semibold text-[1.5rem] mb-5">Financial Situation</h3>
 
               <div className="mb-4">
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">What is your fixed monthly net income?</label>
+                <label htmlFor="number" className="block mb-2 text-sm font-medium text-gray-900">What is your fixed monthly net income?</label>
                 <input
                   type="number"
                   id="income"
+                  value={income}
+                  onChange={(e) => setIncome(e.target.value)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   required
                 />
               </div>
               <div className="mb-5">
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay for rent each month?</label>
+                <label htmlFor="number" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay for rent each month?</label>
                 <input
                   type="number"
                   id="rent"
+                  value={rent}
+                  onChange={(e) => setRent(e.target.value)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   required
                 />
               </div>
               <div className="mb-5">
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay for household expenses monthly (water, electricity, gas)?</label>
+                <label htmlFor="number" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay for household expenses monthly (water, electricity, gas)?</label>
                 <input
                   type="number"
                   id="household"
+                  value={household}
+                  onChange={(e) => setHousehold(e.target.value)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   required
                 />
               </div>
               <div className="mb-5">
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay monthly for living expenses (e.g. food, hospital)?</label>
+                <label htmlFor="number" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay monthly for living expenses (e.g. food, hospital)?</label>
                 <input
                   type="number"
                   id="living"
+                  value={living}
+                  onChange={(e) => setLiving(e.target.value)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   required
                 />
               </div>
               <div className="mb-8">
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">How much do you spend monthly on leisure?</label>
+                <label htmlFor="number" className="block mb-2 text-sm font-medium text-gray-900">How much do you spend monthly on leisure?</label>
                 <input
                   type="number"
                   id="extras"
+                  value={extras}
+                  onChange={(e) => setExtras(e.target.value)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   required
                 />
@@ -142,6 +185,8 @@ function Profile() {
                 <input
                   type="number"
                   id="saved"
+                  value={saved}
+                  onChange={(e) => setSaved(e.target.value)}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   required
                 />
@@ -163,6 +208,8 @@ function Profile() {
                     <input
                       type="number"
                       id="wsave"
+                      value={wsave}
+                      onChange={(e) => setWsave(e.target.value)}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       required
                     />
@@ -183,6 +230,8 @@ function Profile() {
                     <input
                       type="number"
                       id="amount"
+                      value={amount}
+                      onChange={(e) => setAmount(e.target.value)}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       required
                     />
