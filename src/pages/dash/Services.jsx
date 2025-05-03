@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import PieDiagram from '../../components/diagram';
 import '../../styles/App.css';
 
 function Services() {
@@ -10,9 +11,31 @@ function Services() {
     navigate('/login');
   };
 
+  useEffect (() => {
+    const income_ = localStorage.getItem('income');
+    const rent1_ = localStorage.getItem('rent1');
+    const rent2_ = localStorage.getItem('rent2');
+    const household1_ = localStorage.getItem('household1');
+    const household2_ = localStorage.getItem('household2');
+    const living1_ = localStorage.getItem('living1');
+    const living2_ = localStorage.getItem('living2');
+    const extras1_ = localStorage.getItem('extras1');
+    const extras2_ = localStorage.getItem('extras2');
+
+    document.getElementById('income').innerText = income_;
+    document.getElementById('rent1').innerText = rent1_;
+    document.getElementById('rent2').innerText = rent2_;
+    document.getElementById('household1').innerText = household1_;
+    document.getElementById('household2').innerText = household2_;
+    document.getElementById('living1').innerText = living1_;
+    document.getElementById('living2').innerText = living2_;
+    document.getElementById('extras1').innerText = extras1_;
+    document.getElementById('extras2').innerText = extras2_;
+  });
+
   return (
-    <div>
-      <nav>
+    <div className="flex w-full h-auto justify-center pb-20">
+      <nav className="w-[17.5%] h-full">
         <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100">
           <span class="sr-only">Open sidebar</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +43,7 @@ function Services() {
           </svg>
         </button>
 
-        <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-[17.5%] h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-gradient-to-b from-blue-700 to-black">
             <ul class="space-y-2 font-medium">
               <li>
@@ -59,109 +82,109 @@ function Services() {
             </ul>
           </div>
         </aside>
-
-        <div class="p-4 sm:ml-64">
-          <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
-            <div class="grid grid-cols-3 gap-4 mb-4">
-              <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-            </div>
-            <div class="flex items-center justify-center h-48 mb-4 rounded-sm bg-gray-50">
-              <p class="text-2xl text-gray-400">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                </svg>
-              </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400 ">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-            </div>
-            <div class="flex items-center justify-center h-48 mb-4 rounded-sm bg-gray-50">
-              <p class="text-2xl text-gray-400">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                </svg>
-              </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </nav>
+
+      <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
+        <h1 className="text-[3.75rem] font-bold mb-10 text-blue-800 bg-clip-text">Services</h1>
+
+        <div className="mb-24">
+          <PieDiagram></PieDiagram>
+        </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-[750px] h-auto text-sm text-left rtl:text-right text-gray-400">
+            <thead class="text-center text-xs uppercase bg-gray-700 text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3">
+                  Category Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Amount (monthly)
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  % of the total
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Recommended
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Grade
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center border-b bg-gray-800 border-gray-700 hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                  Income
+                </th>
+                <td id='income' class="px-6 py-4">
+                </td>
+                <td class="px-6 py-4">
+                    Reference
+                </td>
+                <td class="px-6 py-4">
+                  -
+                </td>
+                <td class="px-6 py-4">
+                  -
+                </td>
+              </tr>
+              <tr class="text-center border-b bg-gray-800 border-gray-700 hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                  Rent
+                </th>
+                <td id='rent1' class="px-6 py-4">
+                </td>
+                <td id='rent2' class="px-6 py-4">
+                </td>
+                <td id='rent3' class="px-6 py-4">
+                </td>
+                <td id='rent4' class="px-6 py-4">
+                </td>
+              </tr>
+              <tr class="text-center border-b border-gray-700 bg-gray-800 hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                  Household expenses
+                </th>
+                <td id='household1' class="px-6 py-4">
+                </td>
+                <td id='household2' class="px-6 py-4">
+                </td>
+                <td id='household3' class="px-6 py-4">
+                </td>
+                <td id='household4' class="px-6 py-4">
+                </td>
+              </tr>
+              <tr class="text-center border-b border-gray-700 bg-gray-800 hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                  Living expenses
+                </th>
+                <td id='living1' class="px-6 py-4">
+                </td>
+                <td id='living2' class="px-6 py-4">
+                </td>
+                <td id='living3' class="px-6 py-4">
+                </td>
+                <td id='living4' class="px-6 py-4">
+                </td>
+              </tr>
+              <tr class="text-center border-b border-gray-700 bg-gray-800 hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                  Leisure expenses
+                </th>
+                <td id='extras1' class="px-6 py-4">
+                </td>
+                <td id='extras2' class="px-6 py-4">
+                </td>
+                <td id='extras3' class="px-6 py-4">
+                </td>
+                <td id='extras4' class="px-6 py-4">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
