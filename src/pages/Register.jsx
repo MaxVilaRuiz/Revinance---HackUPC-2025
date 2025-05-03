@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../styles/App.css';
 
 function Register() {
@@ -7,21 +8,31 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
   const handleRegister = async (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch('http://localhost:5000/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password })
-      });
+    let result = await fetch(
+    'http://localhost:5000/register', {
+        method: "post",
+        body: JSON.stringify({ name, email, password }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+      
+    const data = await result.json();
+    console.log(result.status);
 
-      const data = await res.json();
-      console.log(data);
-    } catch (err) {
-      console.error("Error en el registro:", err);
+    if(result.status === 201) {
+      alert("Data saved successfully!");
+      navigate('/dash/home_');
+    } else if(result.status === 409) { 
+      alert(data.message);
+    } else {
+      alert("Something went wrong X(");
     }
-  };
+  }
 
   return (
     <div className="bg-green-500 h-screen flex flex-col justify-center items-center">
