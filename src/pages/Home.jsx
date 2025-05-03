@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
+import fondo from '../assets/espai.jpg';
 
 function Home() {
   return (
-    <div className="bg-blue-900">
+    <div
+       className="w-full h-screen bg-cover bg-center"
+       style={{ backgroundImage: `url(${fondo})` }}>
+
       <nav class="bg-transparent px-10">
         <div class="w-full flex flex-wrap items-center justify-between p-4">
           <Link to="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <span class="text-white self-center text-2xl font-semibold whitespace-nowrap">Plantinance</span>
+            <span class="text-white self-center text-2xl font-semibold whitespace-nowrap">Revinance</span>
           </Link>
           <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
@@ -34,14 +38,18 @@ function Home() {
 
       <main className="mt-8">
         <div className="mb-10">
-          <p className="text-white text-center text-[5rem] font-bold">Plantinance</p>
-          <p className="text-white mt-3 text-[1.3rem] italic text-center font-semibold" >If you are looking for a way to achieve your financial goals, but you are having problems with that, this is your place!</p>
+          <p className="text-white text-center text-[5rem] font-bold" style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.7)" }}>Revinance</p>
+          <p className="text-white mt-6 text-[1.5rem] italic text-center font-semibold" >Boost your dreams with the right guidance. </p>
         </div>
-        <div className="flex w-full h-auto px-14 items-center justify-center">
-          <div className="flex flex-col bg-black rounded-2xl p-10 gap-5 w-[675px] h-auto">
-            <p className="text-white text-[1.2rem] text-left font-medium"> Use our innovative method to save money for your future, where you will have to obtaing experience to level up your bonsai. Play minigames and complete the economic achievements that you will set for yourself, and your bonsai will be happy!</p>
-            <p className="text-white text-[1.2rem] text-left font-medium"> Control your money expenses in a creative and interactive way. If you don't complete your goals, you will lose the points that you have had earned, and you would lose some of your plant options, but if you achieve the savings that you previusly wanted, it will grow, and you will be able to play with it. </p>
-          </div>
+        <div className="flex w-full h-auto px-14 justify-center items-center">
+        <div className="bg-black w-[600px] h-[400px] mt-16 shadow-2xl border-2 border-white rounded-2xl">
+          <p className="mt-10 text-white text-center text-[4rem]" style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.7)" }}>
+          Learn, </p>
+          <p className="text-white text-center text-[4rem]" style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.7)" }}>
+          Save,</p>
+          <p className="text-white text-center text-[4rem]" style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.7)" }}>
+          Grow. </p>
+        </div>
         </div>
       </main>
     </div>

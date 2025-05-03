@@ -42,7 +42,7 @@ function Register() {
   return (
     <div className="bg-gradient-to-br from-blue-600 to-black h-screen flex flex-col">
       <div className="z-10 text-left p-8">
-        <Link to="/" className="font-semibold text-[2rem] text-white">Revolut</Link>
+        <Link to="/" className="font-semibold text-[2rem] text-white">Revinance</Link>
       </div>
 
       <div className="z-0 flex self-top justify-center w-full h-full mt-[-6vh]">
