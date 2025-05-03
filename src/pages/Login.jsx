@@ -46,13 +46,17 @@ function Login() {
   }
 
   return (
-    <div className="bg-white h-screen flex flex-col justify-center items-center">
-      <div id='msg-so' className="hidden w-[500px] shadow-2xl text-center rounded-3xl bg-white-100 border border-gray-100 text-black px-4 py-2 mb-5">
+    <div className="bg-gradient-to-br from-blue-600 to-black h-screen flex flex-col">
+      <div className="text-left p-8">
+        <Link to="/" className="font-semibold text-[2rem] text-white">Revolut</Link>
+      </div>
+
+      <div id='msg-so' className="shadow-2xl shadow-black self-center w-[500px] text-center rounded-3xl bg-green-400 text-black px-4 py-2 mb-5">
       ✓ You have been logged out successfully.
       </div>
 
       <main className="flex justify-center items-center w-full h-[70%] pb-8">
-        <div className="bg-white border border-gray-100 shadow-2xl p-12 rounded-3xl w-full max-w-lg h-[550px] overflow-visible">
+        <div className="bg-white border border-gray-100 shadow-2xl shadow-black p-12 rounded-3xl w-full max-w-lg h-[550px] overflow-visible">
           {/* Título dentro del contenedor verde */}
           <h1 className="text-4xl font-extrabold text-black drop-shadow text-center mt-5 mb-20">Log In</h1>
           
