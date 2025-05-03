@@ -24,16 +24,14 @@ function Register() {
   };
 
   return (
-    <div className="bg-gray-200 h-screen flex flex-col justify-center items-center">
-      <header className="pt-16 text-center">
-        <h1 className="text-6xl font-extrabold text-black drop-shadow">Register</h1>
-      </header>
+    <div className="bg-green-500 h-screen flex flex-col justify-center items-center">
+      <main className="flex justify-center items-center w-full h-[70%] pb-8">
+        <div className="bg-green-300 shadow-lg p-12 rounded-2xl w-full max-w-xl min-h-[600px]">
+        <h1 className="text-4xl font-extrabold text-center text-green-900 drop-shadow mt-6 mb-16">Register</h1>
 
-      <main className="flex justify-center items-center w-full h-[80%] pb-8">
         {/* Contenedor del formulario con fondo más oscuro y sombra */}
-        <div className="bg-gray-300 shadow-lg p-10 rounded-xl w-full max-w-md">
           <form onSubmit={handleRegister} className="w-full">
-          <div className="mb-5">
+          <div className="mb-4">
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
               <input
                 type="text"
@@ -56,7 +54,7 @@ function Register() {
                 required
               />
             </div>
-            <div className="mb-5">
+            <div className="mb-8">
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
               <input
                 type="password"
@@ -93,6 +91,10 @@ function Register() {
             >
               Submit
             </button>
+            <div className="mt-5 flex items-center space-x-2 justify-center">
+            <p className="font-medium"> Do you already have and account?</p>
+            <Link to="/login" class="block py-2 px-3 text-blue-800 hover:underline  rounded-sm md:p-0">Log in</Link>
+            </div>
           </form>
         </div>
       </main>

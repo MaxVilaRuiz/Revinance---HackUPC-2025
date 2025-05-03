@@ -32,9 +32,6 @@ function Home() {
               <li>
                 <Link to="register" class="block py-2 px-3 text-black hover:underline  rounded-sm md:p-0">Sign up</Link>
               </li>
-              <li>
-                <a href="#" class="block py-2 px-3 text-black hover:underline rounded-sm md:p-0">Contact</a>
-              </li>
             </ul>
           </div>
         </div>
