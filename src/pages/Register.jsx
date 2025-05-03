@@ -40,10 +40,10 @@ function Register() {
   }
 
   return (
-    <div className="bg-green-500 h-screen flex flex-col justify-center items-center">
+    <div className="bg-white h-screen flex flex-col justify-center items-center">
       <main className="flex justify-center items-center w-full h-[70%] pb-8">
-        <div className="bg-green-300 shadow-lg p-12 rounded-2xl w-full max-w-lg h-[730px]">
-        <h1 className="text-4xl font-extrabold text-center text-green-900 drop-shadow mt-6 mb-16">Register</h1>
+        <div className="bg-white border border-gray-100 shadow-2xl p-12 rounded-3xl w-full max-w-lg h-[700px] overflow-visible">
+        <h1 className="text-4xl font-extrabold text-center text-black drop-shadow mt-6 mb-16">Register</h1>
 
         {/* Contenedor del formulario con fondo más oscuro y sombra */}
           <form onSubmit={handleRegister} className="w-full">
