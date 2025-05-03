@@ -45,7 +45,7 @@ function Register() {
         <Link to="/" className="font-semibold text-[2rem] text-white">Revolut</Link>
       </div>
 
-      <div className="flex self-center justify-center items-center w-full h-full pb-20">
+      <div className="flex self-top justify-center w-full h-full mt-[-6vh]">
         
         <div className="bg-white border border-gray-100 shadow-2xl shadow-black p-12 rounded-3xl w-full max-w-lg h-[700px] overflow-visible">
         <h1 className="text-4xl font-extrabold text-center text-black drop-shadow mt-6 mb-16">Register</h1>
@@ -102,7 +102,7 @@ function Register() {
               Submit
             </button>
             <div className="mt-5 flex items-center space-x-2 justify-center">
-            <p className="font-medium"> Do you already have and account?</p>
+            <p className="font-medium"> Have and account?</p>
             <Link to="/login" class="block py-2 px-3 text-blue-800 hover:underline  rounded-sm md:p-0">Log in</Link>
             </div>
           </form>

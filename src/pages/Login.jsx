@@ -91,7 +91,7 @@ function Login() {
               Submit
             </button>
             <div className="mt-5 flex items-center space-x-2 justify-center">
-            <p className="font-medium"> Are you not registered?</p>
+            <p className="font-medium"> Don't have an account?</p>
             <Link to="/register" class="block py-2 px-3 text-blue-800 hover:underline  rounded-sm md:p-0">Sign up</Link>
             </div>
           </form>
