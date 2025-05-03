@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../styles/App.css';
-import MainScene from '../../components/main3d.jsx';
+import Main from '../../components/main.jsx';
 
 function Dashboard() {
   return (
     <div>
       <main>
-        <MainScene />
+        <Main />
       </main>
     </div>
   );

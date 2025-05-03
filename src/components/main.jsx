@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-export default function MainScene()
+export default function Main()
 {
     const containerRef = useRef();
 
@@ -20,23 +19,18 @@ export default function MainScene()
         renderer.setSize( width, height );
         container.appendChild( renderer.domElement );
 
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(5, 10, 0);
-        scene.add(light);
         const ambientLight = new THREE.AmbientLight(0xffffff, Math.PI);
         scene.add(ambientLight);
 
-        const loader = new GLTFLoader();
-        loader.load('/importmodels/TwistedTree_1.gltf', 
-            (gltf) => {
-                scene.scale.set(0.2, 0.2, 0.2);
-                scene.position.y = -2;
-                scene.add(gltf.scene);
-            }
-        );
-
-        camera.position.z = 5;
+        camera.position.z = 50;
         const cameraStartPosition = new THREE.Vector3().copy(camera.position);
+
+        // PHYSICS SPHERES
+        const geometry = new THREE.SphereGeometry(5, 16, 16);
+        const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+        const sphere = new THREE.Mesh( geometry, material );
+        let velocity = 0;
+        scene.add( sphere );
 
         const handleMouseMove = (e) => {
             mouseRef.current.x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -45,17 +39,26 @@ export default function MainScene()
 
         window.addEventListener('mousemove', handleMouseMove);
 
+        const clock = new THREE.Clock();
+
         const animate = () =>
         {
-            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
             
+            if(sphere.position.y > -20)
+            {
+                velocity += 20 * delta;
+                sphere.position.y -= velocity * delta;
+            }
+            else if(velocity != 0) velocity = 0;
+
             const { x, y } = mouseRef.current;
             camera.position.x = cameraStartPosition.x + x * 1;
             camera.position.y = cameraStartPosition.y + y * 1;
-            //camera.lookAt(glftmodel.position);
             camera.updateProjectionMatrix();
-
+            
             renderer.render( scene, camera );
+            requestAnimationFrame(animate);
         }
         animate();
 
