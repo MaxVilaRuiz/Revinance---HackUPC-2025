@@ -15,12 +15,12 @@ function Login() {
 
   return (
     <div className="bg-green-500 h-screen flex flex-col justify-center items-center">
-      <div id='msg-so' className="hidden w-[500px] text-center rounded-lg bg-green-100 border border-green-400 text-green-700 px-4 py-2 mb-4">
-        You have been logged out successfully.
+      <div id='msg-so' className="hidden w-[500px] text-center rounded-lg bg-green-100 border border-green-400 text-green-700 px-4 py-2 mb-5">
+      ✓ You have been logged out successfully.
       </div>
 
       <main className="flex justify-center items-center w-full h-[70%] pb-8">
-        <div className="bg-green-300 shadow-lg p-12 rounded-2xl w-full max-w-xl min-h-[600px]">
+        <div className="bg-green-300 shadow-lg p-12 rounded-2xl w-full max-w-lg h-[550px]">
           {/* Título dentro del contenedor verde */}
           <h1 className="text-4xl font-extrabold text-green-900 drop-shadow text-center mt-5 mb-20">Log In</h1>
           
