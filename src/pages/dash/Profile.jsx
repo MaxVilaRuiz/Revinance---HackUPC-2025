@@ -36,11 +36,40 @@ function Profile() {
     question2.classList.contains('hidden') ? question2.classList.remove('hidden') : question2.classList.add('hidden');
   };
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // To update localStorage:
+    localStorage.removeItem('income');
+    localStorage.removeItem('rent');
+    localStorage.removeItem('household');
+    localStorage.removeItem('living');
+    localStorage.removeItem('extras');
+    localStorage.removeItem('saved');
+    localStorage.removeItem('wsave');
+    localStorage.removeItem('amount');
+
+    localStorage.setItem('income', document.getElementById('income').value);
+    localStorage.setItem('rent', document.getElementById('rent').value);
+    localStorage.setItem('household', document.getElementById('household').value);
+    localStorage.setItem('living', document.getElementById('living').value);
+    localStorage.setItem('extras', document.getElementById('extras').value);
+    localStorage.setItem('saved', document.getElementById('saved').value);
+
+    const wsave = document.getElementById('wsave');
+    if (wsave && wsave.value.trim() !== "") {
+      localStorage.setItem('wsave', wsave.value);
+    }
+    const amount = document.getElementById('amount');
+    if (amount && amount.value.trim() !== "") {
+      localStorage.setItem('amount', amount.value);
+    }
+
+    // To update the DB:
     let result = await fetch(
     'http://localhost:5000/profile', {
         method: "post",
+        // "wsave" and "amount" parameters are optional.
         body: JSON.stringify({ income, rent, household, living, extras, saved, wsave, amount }),
         headers: {
             'Content-Type': 'application/json'
@@ -115,7 +144,7 @@ function Profile() {
       <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
         <h1 className="text-[3.75rem] font-bold mb-10 text-blue-800 bg-clip-text">Profile</h1>
 
-        <form className="grid max-w-[100%] gap-6">
+        <form onSubmit={handleSubmit} className="grid max-w-[100%] gap-6">
           <div className="grid md:grid-cols-2 gap-20">
             <div>
               <h3 className="font-semibold text-[1.5rem] mb-5">Financial Situation</h3>
@@ -211,7 +240,6 @@ function Profile() {
                       value={wsave}
                       onChange={(e) => setWsave(e.target.value)}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      required
                     />
                   </div>
                 </div>
@@ -233,7 +261,6 @@ function Profile() {
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      required
                     />
                   </div>
                 </div>
