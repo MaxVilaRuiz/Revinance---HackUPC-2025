@@ -35,8 +35,8 @@ function Home_() {
 
 
   return (
-    <div>
-      <nav>
+    <div className="flex w-full h-screen justify-center">
+      <nav className="w-[17.5%] h-full">
         <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100">
           <span class="sr-only">Open sidebar</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@ function Home_() {
           </svg>
         </button>
 
-        <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-[17.5%] h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-gradient-to-b from-blue-700 to-black">
             <ul class="space-y-2 font-medium">
               <li>
@@ -79,10 +79,15 @@ function Home_() {
                   </svg>
                   <span class="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
                 </button>
-              </li>
+              </li> 
             </ul>
           </div>
         </aside>
+
+        <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
+
+        </div>
+
 
         <div className="flex justify-center">
         <div>
