@@ -4,17 +4,20 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// ✅ Usa CORS correctamente antes de las rutas
+app.use(cors({ origin: 'http://localhost:3000' }));
+
 app.use(express.json());
 
-// Importamos las rutas de autenticación
+// Rutas
 const authRoutes = require('./routes/authRoutes');
-app.use('/api/auth', authRoutes); // Prefijo de la ruta para las solicitudes de autenticación
+app.use('/api/auth', authRoutes);
 
 // Conexión a MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Conectado a MongoDB");
-    app.listen(5000, () => console.log('Servidor en http://localhost:5000'));
+    app.listen(5000, () => console.log("Servidor en http://localhost:5000"));
   })
   .catch(err => console.error("Error de conexión:", err));

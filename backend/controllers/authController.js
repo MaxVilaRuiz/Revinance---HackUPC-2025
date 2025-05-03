@@ -1,24 +1,12 @@
-// backend/controllers/authController.js
-exports.register = (req, res) => {
-  // Aquí iría la lógica para registrar un usuario.
-  // Lo haremos de forma simple, solo para ilustrar.
-  const { email, password } = req.body;
-  
-  if (!email || !password) {
-    return res.status(400).send('Email y password son obligatorios');
-  }
-  
-  // Simulación de registro exitoso
-  res.status(201).send(`Usuario con email ${email} registrado`);
-};
+const User = require('../models/User');
 
-exports.login = (req, res) => {
-  const { email, password } = req.body;
-  
-  if (!email || !password) {
-    return res.status(400).send('Email y password son obligatorios');
+exports.register = async (req, res) => {
+  const { name, email, password } = req.body;
+  try {
+    const user = new User({ name, email, password });
+    await user.save();
+    res.status(201).json({ message: 'Usuario registrado con éxito' });
+  } catch (err) {
+    res.status(500).json({ error: 'Error al registrar usuario' });
   }
-  
-  // Simulación de login exitoso
-  res.status(200).send(`Usuario con email ${email} logueado`);
 };
