@@ -11,11 +11,11 @@ function Register() {
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
+    e.preventDefault();
     const pw1 = document.getElementById('password1');
     const pw2 = document.getElementById('password2');
     if (pw1.value !== pw2.value) alert('Passwords must be the same.');
     else {
-      e.preventDefault();
       let result = await fetch(
       'http://localhost:5000/register', {
           method: "post",
