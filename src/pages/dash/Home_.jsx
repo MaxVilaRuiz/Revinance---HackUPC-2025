@@ -7,6 +7,7 @@ import '../../styles/App.css';
 function Home_() {
   const navigate = useNavigate();
   const handleLogout = () => {
+    localStorage.clear();
     localStorage.setItem('singout', true);
     navigate('/login');
   };

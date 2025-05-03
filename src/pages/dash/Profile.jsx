@@ -18,6 +18,7 @@ function Profile() {
   const [amount, setAmount] = useState('');
 
   const handleLogout = () => {
+    localStorage.clear();
     localStorage.setItem('singout', true);
     navigate('/login');
   };

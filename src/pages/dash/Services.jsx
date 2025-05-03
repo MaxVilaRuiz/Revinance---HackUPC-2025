@@ -8,6 +8,7 @@ import { lightViewPosition } from 'three/src/nodes/TSL.js';
 function Services() {
   const navigate = useNavigate();
   const handleLogout = () => {
+    localStorage.clear();
     localStorage.setItem('singout', true);
     navigate('/login');
   };
