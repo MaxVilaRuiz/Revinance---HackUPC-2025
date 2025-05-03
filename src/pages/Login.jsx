@@ -38,6 +38,8 @@ function Login() {
       navigate('/dash/home_');
     } else if(result.status === 409) { 
       alert(data.message);
+    } else if(result.status === 400) {
+      alert(data.message);
     } else {
       alert("Something went wrong X(");
     }

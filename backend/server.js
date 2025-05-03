@@ -41,7 +41,7 @@ app.get("/", (req, resp) => {
 });
 
 app.post("/register", async (req, resp) => {
-    const { name, email, password } = req.body;
+    const { email } = req.body;
     const newUser = new User(req.body);
     try {
         const oldUser = await User.findOne({ email });
@@ -52,6 +52,28 @@ app.post("/register", async (req, resp) => {
         {
             const user = await newUser.save();
             resp.status(201).json({ message: "User registered" });
+        }
+    } catch (e) {
+        resp.status(500).json({ message: "Server error", error });
+    }
+});
+
+app.post("/login", async (req, resp) => {
+    const { email, password } = req.body;
+    try {
+        const findUser = await User.findOne({ email });
+        if(findUser)
+        {
+            if(findUser.password == password)
+            {
+                resp.status(201).json({ message: "Login success" });
+            }
+            else
+            {
+                resp.status(400).json({ message: "The password is not correct!" });
+            }
+        } else {
+            resp.status(409).json({ message: "The email is not registered!" });
         }
     } catch (e) {
         resp.status(500).json({ message: "Server error", error });
