@@ -40,9 +40,14 @@ function Register() {
   }
 
   return (
-    <div className="bg-white h-screen flex flex-col justify-center items-center">
-      <main className="flex justify-center items-center w-full h-[70%] pb-8">
-        <div className="bg-white border border-gray-100 shadow-2xl p-12 rounded-3xl w-full max-w-lg h-[700px] overflow-visible">
+    <div className="bg-gradient-to-br from-blue-600 to-black h-screen flex flex-col">
+      <div className="text-left p-8">
+        <Link to="/" className="font-semibold text-[2rem] text-white">Revolut</Link>
+      </div>
+
+      <div className="flex self-center justify-center items-center w-full h-full pb-20">
+        
+        <div className="bg-white border border-gray-100 shadow-2xl shadow-black p-12 rounded-3xl w-full max-w-lg h-[700px] overflow-visible">
         <h1 className="text-4xl font-extrabold text-center text-black drop-shadow mt-6 mb-16">Register</h1>
 
         {/* Contenedor del formulario con fondo más oscuro y sombra */}
@@ -102,7 +107,7 @@ function Register() {
             </div>
           </form>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

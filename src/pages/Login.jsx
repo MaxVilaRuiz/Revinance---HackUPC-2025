@@ -51,7 +51,7 @@ function Login() {
         <Link to="/" className="font-semibold text-[2rem] text-white">Revolut</Link>
       </div>
 
-      <div id='msg-so' className="shadow-2xl shadow-black self-center w-[500px] text-center rounded-3xl bg-green-400 text-black px-4 py-2 mb-5">
+      <div id='msg-so' className="hidden shadow-2xl shadow-black self-center w-[500px] text-center rounded-3xl bg-green-400 text-black px-4 py-2 mb-5">
       ✓ You have been logged out successfully.
       </div>
 
