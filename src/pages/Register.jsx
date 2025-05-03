@@ -11,26 +11,31 @@ function Register() {
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
-    e.preventDefault();
-    let result = await fetch(
-    'http://localhost:5000/register', {
-        method: "post",
-        body: JSON.stringify({ name, email, password }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-      
-    const data = await result.json();
-    console.log(result.status);
-
-    if(result.status === 201) {
-      alert("Data saved successfully!");
-      navigate('/dash/home_');
-    } else if(result.status === 409) { 
-      alert(data.message);
-    } else {
-      alert("Something went wrong X(");
+    const pw1 = document.getElementById('password1');
+    const pw2 = document.getElementById('password2');
+    if (pw1 !== pw2) alert('Passwords must be the same.');
+    else {
+      e.preventDefault();
+      let result = await fetch(
+      'http://localhost:5000/register', {
+          method: "post",
+          body: JSON.stringify({ name, email, password }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+        
+      const data = await result.json();
+      console.log(result.status);
+  
+      if(result.status === 201) {
+        alert("Data saved successfully!");
+        navigate('/dash/home_');
+      } else if(result.status === 409) { 
+        alert(data.message);
+      } else {
+        alert("Something went wrong X(");
+      }
     }
   }
 
@@ -76,7 +81,7 @@ function Register() {
                 required
               />
             </div>
-            <div className="mb-6">
+            <div className="mb-8">
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Repeat Password</label>
               <input
                 type="password"
@@ -84,17 +89,6 @@ function Register() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 required
               />
-            </div>
-            <div className="flex items-start mb-8">
-              <div className="flex items-center h-5">
-                <input
-                  id="remember"
-                  type="checkbox"
-                  className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
-                  required
-                />
-              </div>
-              <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900">Remember me</label>
             </div>
             <button
               type="submit"
