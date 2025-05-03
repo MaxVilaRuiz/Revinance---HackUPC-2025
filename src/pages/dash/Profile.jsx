@@ -1,18 +1,36 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/App.css';
 
 function Profile() {
   const navigate = useNavigate();
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+
   const handleLogout = () => {
     localStorage.setItem('singout', true);
     navigate('/login');
   };
 
+  const handleClick1 = (e) => {
+    e.preventDefault();
+    setChecked1(prev => !prev);
+    const question1 = document.getElementById('question1');
+    question1.classList.contains('hidden') ? question1.classList.remove('hidden') : question1.classList.add('hidden');
+  };
+
+  const handleClick2 = (e) => {
+    e.preventDefault();
+    setChecked2(prev => !prev);
+    const question2 = document.getElementById('question2');
+    question2.classList.contains('hidden') ? question2.classList.remove('hidden') : question2.classList.add('hidden');
+  };
+
   return (
-    <div>
-      <nav>
+    <div className="flex w-full h-screen justify-center">
+      <nav className="w-[17.5%] h-full">
         <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100">
           <span class="sr-only">Open sidebar</span>
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +38,7 @@ function Profile() {
           </svg>
         </button>
 
-        <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-[17.5%] h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-green-400">
             <ul class="space-y-2 font-medium">
               <li>
@@ -59,109 +77,130 @@ function Profile() {
             </ul>
           </div>
         </aside>
+      </nav>
 
-        <div class="p-4 sm:ml-64">
-          <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
-            <div class="grid grid-cols-3 gap-4 mb-4">
-              <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
+      <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
+        <h1 className="text-[3.75rem] text-black font-bold mb-10">Profile</h1>
+
+        <form className="grid max-w-[100%] gap-6">
+          <div className="grid md:grid-cols-2 gap-20">
+            <div>
+              <h3 className="font-semibold text-[1.5rem] mb-5">Financial Situation</h3>
+
+              <div className="mb-4">
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">What is your fixed monthly net income?</label>
+                <input
+                  type="number"
+                  id="income"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
               </div>
-              <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
+              <div className="mb-5">
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay for rent each month?</label>
+                <input
+                  type="number"
+                  id="rent"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
               </div>
-              <div class="flex items-center justify-center h-24 rounded-sm bg-gray-50">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
+              <div className="mb-5">
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay for household expenses monthly (water, electricity, gas)?</label>
+                <input
+                  type="number"
+                  id="household"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
               </div>
-            </div>
-            <div class="flex items-center justify-center h-48 mb-4 rounded-sm bg-gray-50">
-              <p class="text-2xl text-gray-400">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                </svg>
-              </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
+              <div className="mb-5">
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">How much do you pay monthly for living expenses (e.g. food, hospital)?</label>
+                <input
+                  type="number"
+                  id="living"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
               </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400 ">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
+              <div className="mb-8">
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">How much do you spend monthly on leisure?</label>
+                <input
+                  type="number"
+                  id="extras"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
               </div>
             </div>
-            <div class="flex items-center justify-center h-48 mb-4 rounded-sm bg-gray-50">
-              <p class="text-2xl text-gray-400">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                </svg>
-              </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
+
+            <div>
+              <h3 className="font-semibold text-[1.5rem] mb-5">Financial Goals</h3>
+
+              <div className="mb-4">
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">How much do you have saved?</label>
+                <input
+                  type="number"
+                  id="saved"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
               </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
-              </div>
-              <div class="flex items-center justify-center rounded-sm bg-gray-50 h-28">
-                <p class="text-2xl text-gray-400">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                  </svg>
-                </p>
+              <div>
+                <p className="block mb-2 text-sm font-medium text-gray-900">What is your financial goal?</p>
+
+                <div className="ml-5 mb-6">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleClick1}
+                      className="w-auto h-auto"> {checked1 ? '✅' : '⬜'}
+                    </button>
+                    <p>Save to keep it</p>
+                  </div>
+
+                  <div id='question1' className="hidden mt-2 mb-4 ml-5">
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">How much would you like to save per year?</label>
+                    <input
+                      type="number"
+                      id="wsave"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="ml-5">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleClick2}
+                      className="w-auto h-auto"> {checked2 ? '✅' : '⬜'}
+                    </button>
+                    <p>Save to spend it</p>
+                  </div>
+
+                  <div id='question2' className="hidden mt-2 mb-4 ml-5">
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">How much does what you want cost?</label>
+                    <input
+                      type="number"
+                      id="amount"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      required
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+
+          <div className="flex justify-center ">
+            <button
+              type="submit"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[400px] px-5 py-2.5 text-center">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
