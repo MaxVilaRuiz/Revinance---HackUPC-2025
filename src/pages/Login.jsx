@@ -1,8 +1,7 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
-import { pass } from 'three/tsl';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -35,6 +34,7 @@ function Login() {
 
     if(result.status === 201) {
       alert("Data manipuled correctly!");
+      localStorage.setItem('user', data.message);
       navigate('/dash/home_');
     } else if(result.status === 409) { 
       alert(data.message);

@@ -7,7 +7,6 @@ function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -30,6 +29,7 @@ function Register() {
   
       if(result.status === 201) {
         alert("Data saved successfully!");
+        localStorage.setItem('user', data.message);
         navigate('/dash/home_');
       } else if(result.status === 409) { 
         alert(data.message);

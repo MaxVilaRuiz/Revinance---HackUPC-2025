@@ -12,9 +12,12 @@ import Home_ from './pages/dash/Home_';
 import Services from './pages/dash/Services';
 import Profile from './pages/dash/Profile';
 
+import { UserProvider } from './context/UserContext';
+
 function App() {
   return (
     <Router>
+      <UserProvider>
       <Routes>
 
         {/* RUTAS PÚBLICAS */}
@@ -22,10 +25,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
-          <Route path="/dash/home_" element={<Home_ />} />
-          <Route path="/dash/services" element={<Services />} />
-          <Route path="/dash/profile" element={<Profile />} />
+            <Route path="/dash/home_" element={<Home_ />} />
+            <Route path="/dash/services" element={<Services />} />
+            <Route path="/dash/profile" element={<Profile />} />
         </Route>
 
         {/* RUTAS PRIVADAS
@@ -34,6 +36,7 @@ function App() {
         </Route> */}
 
       </Routes>
+      </UserProvider>
     </Router>
   );
 }

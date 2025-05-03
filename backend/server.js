@@ -33,7 +33,48 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
+const FinanceSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        unique: true,
+    },
+    income: {
+        type: mongoose.Schema.Types.Double,
+        required: true,
+    },
+    rent: {
+        type: mongoose.Schema.Types.Double,
+        required: true,
+    },
+    household: {
+        type: mongoose.Schema.Types.Double,
+        required: true,
+    },
+    living: {
+        type: mongoose.Schema.Types.Double,
+        required: true,
+    },
+    extras: {
+        type: mongoose.Schema.Types.Double,
+        required: true,
+    },
+    saved: {
+        type: mongoose.Schema.Types.Double,
+        required: true,
+    },
+    wsave: {
+        type: mongoose.Schema.Types.Double,
+        required: false,
+    },
+    amount: {
+        type: mongoose.Schema.Types.Double,
+        required: false,
+    }
+})
+
 const User = mongoose.model('users', UserSchema);
+const FinanceProfile = mongoose.model('finances', FinanceSchema);
 
 app.use(express.json());
 app.use(cors({
@@ -55,7 +96,7 @@ app.post("/register", async (req, resp) => {
         } else
         {
             const user = await newUser.save();
-            resp.status(201).json({ message: "User registered" });
+            resp.status(201).json({ message: user._id.toString() });
         }
     } catch (e) {
         resp.status(500).json({ message: "Server error", error });
@@ -70,7 +111,7 @@ app.post("/login", async (req, resp) => {
         {
             if(findUser.password == password)
             {
-                resp.status(201).json({ message: "Login success" });
+                resp.status(201).json({ message: findUser._id.toString() });
             }
             else
             {
@@ -103,6 +144,10 @@ app.post("/chat", async (req, res) => {
         console.error('OpenAI API Error:', error.response?.data || error.message);
         res.status(500).send('ChatGPT error');
     }
+});
+
+app.post("/profile", async (req, res) => {
+
 });
 
 app.listen(5000, () => {
