@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { use, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
 
 function Login() {
+  useEffect(() => {
+    let singedOut = localStorage.getItem('singout');
+    if(singedOut) {
+      const msg_so = document.getElementById('msg-so');
+      msg_so.classList.remove('hidden');
+      setTimeout(() => msg_so.classList.add('hidden'), 5000);
+      localStorage.removeItem('singout');
+    }
+  });
+
   return (
     <div className="bg-gray-200 h-screen flex flex-col justify-center items-center">
+      <div id='msg-so' className="hidden w-[500px] text-center rounded-lg bg-green-100 border border-green-400 text-green-700 px-4 py-2 mb-4">
+        You have been logged out successfully.
+      </div>
+
       <header className="pt-16 text-center">
         <h1 className="text-6xl font-extrabold text-black drop-shadow">Log In</h1>
       </header>
