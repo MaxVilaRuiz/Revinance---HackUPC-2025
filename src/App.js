@@ -8,7 +8,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
-import Dashboard from './pages/Dashboard';
+import Home_ from './pages/dash/Home_';
+import Services from './pages/dash/Services';
+import Profile from './pages/dash/Profile';
 
 function App() {
   return (
@@ -20,7 +22,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+
+          <Route path="/dash/home_" element={<Home_ />} />
+          <Route path="/dash/services" element={<Services />} />
+          <Route path="/dash/profile" element={<Profile />} />
         </Route>
 
         {/* RUTAS PRIVADAS

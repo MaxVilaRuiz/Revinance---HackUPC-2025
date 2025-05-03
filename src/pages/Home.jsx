@@ -24,7 +24,7 @@ function Home() {
                 <a href="#" class="block py-2 px-3 rounded-sm md:bg-transparent text-black font-bold md:p-0" aria-current="page">Home</a>
               </li>
               <li>
-                <Link to="dashboard" class="block py-2 px-3 text-black hover:underline rounded-sm md:p-0">Dashboard</Link>
+                <Link to="dash/home_" class="block py-2 px-3 text-black hover:underline rounded-sm md:p-0">Dashboard</Link>
               </li>
               <li>
                 <Link to="login" class="block py-2 px-3 text-black hover:underline rounded-sm md:p-0">Log in</Link>
