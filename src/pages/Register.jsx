@@ -30,6 +30,7 @@ function Register() {
       if(result.status === 201) {
         alert("Data saved successfully!");
         localStorage.setItem('user', data.message);
+        localStorage.setItem('registered', true);
         navigate('/dash/profile');
       } else if(result.status === 409) { 
         alert(data.message);
