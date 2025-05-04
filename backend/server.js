@@ -103,7 +103,17 @@ app.post("/login", async (req, resp) => {
         {
             if(findUser.password == password)
             {
-                resp.status(201).json({ message: findUser._id.toString() });
+                const uid = findUser._id.toString();
+                const userFinance = await FinanceProfile.findOne({uid});
+                resp.status(201).json({ id: uid,
+                    name: findUser.name,
+                    income: userFinance.income,
+                    rent: userFinance.rent,
+                    household: userFinance.household,
+                    living: userFinance.living,
+                    extras: userFinance.extras,
+                    saved: userFinance.saved,
+                });
             }
             else
             {

@@ -212,7 +212,7 @@ function Profile() {
               <h3 className="font-semibold text-[1.5rem] mb-5">Financial Goals</h3>
 
               <div className="mb-4">
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">How much do you have saved?</label>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">How much do you save monthly?</label>
                 <input
                   type="number"
                   id="saved"
