@@ -27,27 +27,27 @@ function Services() {
     const extras2 = (extras / income) * 100;
     const saved2 = (saved / income) * 100;
   
-    const rent3 = Number(document.getElementById('rent3')?.value || 0);
+    const rent3 = Number(document.getElementById('rent3')?.innerText.replace('%', '') || 0);
     if (rent3 < rent2) document.getElementById('rent4').style.background = 'red';
     else if (rent3 === rent2) document.getElementById('rent4').style.background = 'orange';
     else document.getElementById('rent4').style.background = 'green';
   
-    const household3 = Number(document.getElementById('household3')?.value || 0);
+    const household3 = Number(document.getElementById('household3')?.innerText.replace('%', '') || 0);
     if (household3 < household2) document.getElementById('household4').style.background = 'red';
     else if (household3 === household2) document.getElementById('household4').style.background = 'orange';
     else document.getElementById('household4').style.background = 'green';
   
-    const living3 = Number(document.getElementById('living3')?.value || 0);
+    const living3 = Number(document.getElementById('living3')?.innerText.replace('%', '') || 0);
     if (living3 < living2) document.getElementById('living4').style.background = 'red';
     else if (living3 === living2) document.getElementById('living4').style.background = 'orange';
     else document.getElementById('living4').style.background = 'green';
   
-    const extras3 = Number(document.getElementById('extras3')?.value || 0);
+    const extras3 = Number(document.getElementById('extras3')?.innerText.replace('%', '') || 0);
     if (extras3 < extras2) document.getElementById('extras4').style.background = 'red';
     else if (extras3 === extras2) document.getElementById('extras4').style.background = 'orange';
     else document.getElementById('extras4').style.background = 'green';
   
-    const saved3 = Number(document.getElementById('saved3')?.value || 0);
+    const saved3 = Number(document.getElementById('saved3')?.innerText.replace('%', '') || 0);
     if (saved3 < saved2) document.getElementById('saved4').style.background = 'green';
     else if (saved3 === saved2) document.getElementById('saved4').style.background = 'orange';
     else document.getElementById('saved4').style.background = 'red';
@@ -170,6 +170,7 @@ function Services() {
                 <td id='rent2' class="px-6 py-4">
                 </td>
                 <td id='rent3' class="px-6 py-4">
+                  30%
                 </td>
                 <td class="flex justify-center px-6 py-4">
                   <div id='rent4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
@@ -184,6 +185,7 @@ function Services() {
                 <td id='household2' class="px-6 py-4">
                 </td>
                 <td id='household3' class="px-6 py-4">
+                  10%
                 </td>
                 <td class="flex justify-center px-6 py-4">
                   <div id='household4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
@@ -198,6 +200,7 @@ function Services() {
                 <td id='living2' class="px-6 py-4">
                 </td>
                 <td id='living3' class="px-6 py-4">
+                  12.5%
                 </td>
                 <td class="flex justify-center px-6 py-4">
                   <div id='living4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
@@ -212,6 +215,7 @@ function Services() {
                 <td id='extras2' class="px-6 py-4">
                 </td>
                 <td id='extras3' class="px-6 py-4">
+                  7.5%
                 </td>
                 <td class="flex justify-center px-6 py-4">
                   <div id='extras4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
@@ -226,6 +230,7 @@ function Services() {
                 <td id='saved2' class="px-6 py-4">
                 </td>
                 <td id='saved3' class="px-6 py-4">
+                  20%
                 </td>
                 <td class="flex justify-center px-6 py-4">
                   <div id='saved4' className="w-[20px] h-[20px] rounded-full bg-gray-500"></div>
