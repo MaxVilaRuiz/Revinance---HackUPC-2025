@@ -34,42 +34,34 @@ const UserSchema = new mongoose.Schema({
 });
 
 const FinanceSchema = new mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
+    uid: {
+        type: String,
         required: true,
         unique: true,
     },
     income: {
-        type: mongoose.Schema.Types.Double,
+        type: Number,
         required: true,
     },
     rent: {
-        type: mongoose.Schema.Types.Double,
+        type: Number,
         required: true,
     },
     household: {
-        type: mongoose.Schema.Types.Double,
+        type: Number,
         required: true,
     },
     living: {
-        type: mongoose.Schema.Types.Double,
+        type: Number,
         required: true,
     },
     extras: {
-        type: mongoose.Schema.Types.Double,
+        type: Number,
         required: true,
     },
     saved: {
-        type: mongoose.Schema.Types.Double,
+        type: Number,
         required: true,
-    },
-    wsave: {
-        type: mongoose.Schema.Types.Double,
-        required: false,
-    },
-    amount: {
-        type: mongoose.Schema.Types.Double,
-        required: false,
     }
 })
 
@@ -147,7 +139,18 @@ app.post("/chat", async (req, res) => {
 });
 
 app.post("/profile", async (req, res) => {
+    const { uid } = req.body;
 
+    try {
+        const findData = await FinanceProfile.findOneAndUpdate(
+            {uid},
+            {$set: req.body},
+            {new: true, upsert: true}
+        );
+        res.status(201).json({ message: "Success" });
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error });
+    }
 });
 
 app.listen(5000, () => {

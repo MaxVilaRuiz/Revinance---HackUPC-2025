@@ -57,21 +57,22 @@ function Profile() {
     localStorage.setItem('extras', document.getElementById('extras').value);
     localStorage.setItem('saved', document.getElementById('saved').value);
 
-    const wsave = document.getElementById('wsave');
+    let wsave = document.getElementById('wsave');
     if (wsave && wsave.value.trim() !== "") {
       localStorage.setItem('wsave', wsave.value);
     }
-    const amount = document.getElementById('amount');
+    let amount = document.getElementById('amount');
     if (amount && amount.value.trim() !== "") {
       localStorage.setItem('amount', amount.value);
     }
 
     // To update the DB:
+    const uid = localStorage.getItem('user');
     let result = await fetch(
     'http://localhost:5000/profile', {
         method: "post",
         // "wsave" and "amount" parameters are optional.
-        body: JSON.stringify({ income, rent, household, living, extras, saved, wsave, amount }),
+        body: JSON.stringify({ uid, income, rent, household, living, extras, saved }),
         headers: {
             'Content-Type': 'application/json'
         }
