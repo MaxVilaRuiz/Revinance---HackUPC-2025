@@ -1,24 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import PieDiagram from '../../components/diagram';
 import '../../styles/App.css';
-// import Main from '../../components/main.jsx';
 
 function Home_() {
+  localStorage.setItem('name', "Max");
   const navigate = useNavigate();
-  const handleLogout = () => {
-    localStorage.clear();
-    localStorage.setItem('singout', true);
-    navigate('/login');
-  };
-
   const input = "Write down 3 to 5 tips for budgeting and financial advice."
   const [response, setResponse] = useState('');
   const name = localStorage.getItem('name');
 
   useEffect(() => {
     const sendMessage = async () => {
-      //e.preventDefault();
       try {
         const res = await fetch('http://localhost:5000/chat', {
           method: "post",
@@ -35,9 +29,14 @@ function Home_() {
         setResponse('Error: Failed to get response from LLM.');
       }
     };
-
     sendMessage();
   }, []);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    localStorage.setItem('singout', true);
+    navigate('/login');
+  };
   
   return (
     <div className="flex w-full h-screen justify-center">
@@ -88,41 +87,28 @@ function Home_() {
             </ul>
           </div>
         </aside>
-        </nav>
+      </nav>
 
-      <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
-        {/*
-        <div className="flex justify-center">
-        <div>
-      <div>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button onClick={sendMessage}>Send</button>
-      </div>
-      <div>
-        <p>{response}</p>
-      </div>
-    </div>
-        </div> */}
-
-        <h1 className="text-center text-blue-900 text-[5rem] mb-7"> Welcome {name}!</h1>
-        <div className="w-[12rem] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-2">
+      <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10 gap-14">
+        {/* <div className="w-[12rem] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-2">
         <div className="bg-green-600 h-2.5 rounded-full w-[45%]"></div>
         </div>
-        <p className="text-[1rem] text-gray-400 text-center mt-2"> Your saving progress</p>
-        <p className="text-[3rem] text-blue-900 text-center mb-2">Advices provided by our AI</p>
-        <div className="justify-center space-x-4 mb-2">
-          <div className="w-[40rem] h-[40rem] bg-white shadow-[4px_4px_10px_rgba(0,0,0,0.5)] border-2 border-black rounded-2xl">
-            <p className="center-text text-black"> Punts </p>
-            <div>
-              <p>{response}</p>
-            </div>
+        <p className="text-[1rem] text-gray-400 text-center mt-2"> Your saving progress</p> */}
+
+        <h1 className="text-[3.75rem] font-bold text-blue-800 bg-clip-text">Welcome {name}!</h1>
+
+        <div className="flex flex-col items-center">
+          <h3 className="font-semibold text-[2rem] mb-5">Personalized AI Advice</h3>
+          <div className="w-[750px] h-[300px] bg-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.2)] rounded-3xl p-5">
+            <p>{response}</p>
           </div>
         </div>
+
+        <div className="flex flex-col items-center">
+          <h3 className="font-semibold text-[2rem] mb-5">Summary</h3>
+          <PieDiagram></PieDiagram>
         </div>
+      </div>
     </div>
   );
 }
