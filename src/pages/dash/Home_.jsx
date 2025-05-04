@@ -84,12 +84,10 @@ function Home_() {
             </ul>
           </div>
         </aside>
+        </nav>
 
-        <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
-
-        </div>
-
-
+      <div className="flex flex-col w-[75%] h-full mt-10 items-center px-10">
+        {/*
         <div className="flex justify-center">
         <div>
       <div>
@@ -104,9 +102,23 @@ function Home_() {
         <p>{response}</p>
       </div>
     </div>
+        </div> */}
+
+        <h1 className="text-center text-blue-900 text-[5rem] mb-7"> Welcome "name"</h1>
+        <div className="w-[12rem] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-2">
+        <div className="bg-green-600 h-2.5 rounded-full w-[45%]"></div>
         </div>
-      </nav>
+        <p className="text-[1rem] text-gray-400 text-center mt-2"> Your saving progress</p>
+        <p className="text-[3rem] text-blue-900 text-center mb-2">Advices provided by our AI</p>
+        <div className="justify-center space-x-4 mb-2">
+          <div className="w-[40rem] h-[40rem] bg-white shadow-[4px_4px_10px_rgba(0,0,0,0.5)] border-2 border-black rounded-2xl">
+            <p className="center-text text-black"> Punts </p>
+          </div>
+        </div>
+        </div>
     </div>
+
+
   );
 }
 
