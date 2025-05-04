@@ -18,7 +18,6 @@ function Profile() {
   const [amount, setAmount] = useState('');
 
   useEffect(() => {
-    localStorage.setItem('registered', true); // Must be deleted!
     const registered = localStorage.getItem('registered');
     if (registered === "true") {
       const nav_home1 = document.getElementById('nav_home1');
@@ -120,6 +119,7 @@ function Profile() {
     console.log(result.status);
 
     if(result.status === 201) {
+      localStorage.removeItem('registered');
       alert("Data manipuled correctly!");
     } else if(result.status === 409) { 
       alert(data.message);

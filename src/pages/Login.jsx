@@ -34,15 +34,22 @@ function Login() {
 
     if(result.status === 201) {
       alert("Data manipuled correctly!");
-      localStorage.setItem('user', data.id);
-      localStorage.setItem('name', data.name);
-      localStorage.setItem('income', data.income);
-      localStorage.setItem('rent', data.rent);
-      localStorage.setItem('household', data.household);
-      localStorage.setItem('living', data.living);
-      localStorage.setItem('extras', data.extras);
-      localStorage.setItem('saved', data.saved);
-      navigate('/dash/home_');
+      if (data.income) {
+        localStorage.setItem('user', data.id);
+        localStorage.setItem('name', data.name);
+        localStorage.setItem('income', data.income);
+        localStorage.setItem('rent', data.rent);
+        localStorage.setItem('household', data.household);
+        localStorage.setItem('living', data.living);
+        localStorage.setItem('extras', data.extras);
+        localStorage.setItem('saved', data.saved);
+        navigate('/dash/home_');
+      }
+      else {
+        localStorage.removeItem('registered');
+        localStorage.setItem('registered', true);
+        navigate('/dash/profile');
+      }
     } else if(result.status === 409) { 
       alert(data.message);
     } else if(result.status === 400) {
