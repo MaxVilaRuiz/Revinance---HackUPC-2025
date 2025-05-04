@@ -40,3 +40,96 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes zoomInOut {
+  0% { background-size: 100%; }
+  100% { background-size: 130%; }
+}
+
+.zoom-background {
+  animation: zoomInOut 30s ease-in-out forwards;  /* La animación ocurre en 30 segundos y se detiene en el 100% */
+}
+
+/* Estilos para los cometas */
+.comet {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* Para darle el brillo del cometa */
+  animation: cometAnimation 3s linear infinite;
+}
+
+.comet1 {
+  top: 20%;
+  left: -10%;
+  animation-delay: 0s; /* Cometa 1 */
+}
+
+.comet2 {
+  top: 50%;
+  left: -20%;
+  animation-delay: 1s; /* Cometa 2 */
+}
+
+.comet3 {
+  top: 70%;
+  left: -30%;
+  animation-delay: 3s; /* Cometa 3 */
+}
+
+.comet4 {
+  top: 10%;
+  left: -40%;
+  animation-delay: 4s; /* Cometa 4 */
+}
+
+.comet5 {
+  top: 50%;
+  left: -50%;
+  animation-delay: 6s; /* Cometa 4 */
+}
+
+.comet6 {
+  top: 30%;
+  left: -10%;
+  animation-delay: 7s; /* Cometa 4 */
+}
+
+.comet3 {
+  top: 10%;
+  left: -30%;
+  animation-delay: 8s; /* Cometa 3 */
+}
+
+.comet8 {
+  top: 50%;
+  left: -70%;
+  animation-delay: 8s; /* Cometa 4 */
+}
+
+.comet9 {
+  top: 70%;
+  left: -10%;
+  animation-delay: 9s; /* Cometa 4 */
+}
+
+.comet10 {
+  top: 60%;
+  left: -40%;
+  animation-delay: 10s; /* Cometa 4 */
+}
+
+/* Animación de movimiento de los cometas */
+@keyframes cometAnimation {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-50vh); /* Sigue hacia la parte inferior */
+    opacity: 0;
+  }
+}

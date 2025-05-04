@@ -40,7 +40,7 @@ function Register() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-black h-screen flex flex-col">
+    <div className="bg-gradient-to-br from-blue-700 to-black h-screen flex flex-col">
       <div className="z-10 text-left p-8">
         <Link to="/" className="font-semibold text-[2rem] text-white">Revinance</Link>
       </div>
@@ -48,7 +48,7 @@ function Register() {
       <div className="z-0 flex self-top justify-center w-full h-full mt-[-6vh]">
         
         <div className="bg-white border border-gray-100 shadow-2xl shadow-black p-12 rounded-3xl w-full max-w-lg h-[700px] overflow-visible">
-        <h1 className="text-4xl font-extrabold text-center text-black drop-shadow mt-6 mb-16">Register</h1>
+        <h1 className="text-4xl font-bold text-center text-black drop-shadow mt-6 mb-16">Register</h1>
 
         {/* Contenedor del formulario con fondo más oscuro y sombra */}
           <form onSubmit={handleRegister} className="w-full">

@@ -1,13 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
-import fondo from '../assets/espai.jpg';
+import fondo from '../assets/bg-img.jpg';
 
 function Home() {
   return (
     <div
-       className="w-full h-screen bg-cover bg-center"
+       className="w-full h-screen bg-cover bg-center zoom-background"
        style={{ backgroundImage: `url(${fondo})` }}>
+
+      <div className="comet comet1"></div>
+      <div className="comet comet2"></div>
+      <div className="comet comet3"></div>
+      <div className="comet comet4"></div>
+      <div className="comet comet5"></div>
+      <div className="comet comet6"></div>
+      <div className="comet comet7"></div>
+      <div className="comet comet8"></div>
+      <div className="comet comet9"></div>
+      <div className="comet comet10"></div>
 
       <nav class="bg-transparent px-10">
         <div class="w-full flex flex-wrap items-center justify-between p-4">
@@ -23,13 +34,10 @@ function Home() {
           <div class="w-full md:block md:w-auto" id="navbar-default">
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border md:flex-row md:space-x-14 rtl:space-x-reverse md:mt-0 md:border-0">
               <li>
-                <Link to="dash/home_" class="text-white w-[100px] h-[32px] flex items-center justify-center rounded-xl transition-all duration-300 hover:bg-black hover:text-white">Dashboard</Link>
+                <Link to="login" class="text-white w-[100px] h-[45px] flex items-center justify-center rounded-full transition-all duration-300 hover:bg-black hover:text-white">Log in</Link>
               </li>
               <li>
-                <Link to="login" class="text-white w-[80px] h-[32px] flex items-center justify-center rounded-xl transition-all duration-300 hover:bg-black hover:text-white">Log in</Link>
-              </li>
-              <li>
-                <Link to="register" class="bg-white text-black w-[80px] h-[32px] flex items-center justify-center rounded-xl transition-all duration-300 hover:bg-gray-300 hover:text-black">Sign up</Link>
+                <Link to="register" class="bg-white text-black w-[100px] h-[45px] flex items-center justify-center rounded-full transition-all duration-300 hover:bg-gray-300 hover:text-black">Sign up</Link>
               </li>
             </ul>
           </div>
@@ -38,10 +46,10 @@ function Home() {
 
       <main className="mt-8">
         <div className="mb-10">
-          <p className="text-white text-center text-[5rem] font-bold" style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.7)" }}>Revinance</p>
-          <p className="text-white mt-6 text-[1.5rem] italic text-center font-semibold" >Boost your dreams with the right guidance. </p>
+          <h1 className="text-white text-center text-[5rem] font-bold" style={{ textShadow: "0px 0px 8px rgba(255, 255, 255, 0.7)" }}>Revinance</h1>
+          <p className="text-white mt-3 text-[1.4rem] italic text-center font-semibold" >Boost your dreams with the right guidance. </p>
         </div>
-        <div className="flex w-full h-auto px-14 justify-center items-center">
+        {/* <div className="flex w-full h-auto px-14 justify-center items-center">
         <div className="bg-black w-[600px] h-[400px] mt-16 shadow-2xl border-2 border-white rounded-2xl">
           <p className="mt-10 text-white text-center text-[4rem]" style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.7)" }}>
           Learn, </p>
@@ -50,7 +58,7 @@ function Home() {
           <p className="text-white text-center text-[4rem]" style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.7)" }}>
           Grow. </p>
         </div>
-        </div>
+        </div> */}
       </main>
     </div>
   );

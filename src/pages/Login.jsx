@@ -46,7 +46,7 @@ function Login() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-black h-screen flex flex-col">
+    <div className="bg-gradient-to-br from-blue-700 to-black h-screen flex flex-col">
       <div className="text-left p-8">
         <Link to="/" className="font-semibold text-[2rem] text-white">Revinance</Link>
       </div>
@@ -58,7 +58,7 @@ function Login() {
       <main className="flex justify-center items-center w-full h-[70%] pb-8">
         <div className="bg-white border border-gray-100 shadow-2xl shadow-black p-12 rounded-3xl w-full max-w-lg h-[550px] overflow-visible">
           {/* Título dentro del contenedor verde */}
-          <h1 className="text-4xl font-extrabold text-black drop-shadow text-center mt-5 mb-20">Log In</h1>
+          <h1 className="text-4xl font-bold text-black drop-shadow text-center mt-5 mb-20">Log In</h1>
           
           <form onSubmit={handleLogin} className="w-full">
             <div className="mb-4">
