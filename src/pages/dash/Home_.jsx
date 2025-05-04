@@ -5,11 +5,26 @@ import PieDiagram from '../../components/diagram';
 import '../../styles/App.css';
 
 function Home_() {
-  localStorage.setItem('name', "Max");
   const navigate = useNavigate();
-  const input = "Write down 3 to 5 tips for budgeting and financial advice."
-  const [response, setResponse] = useState('');
+  const handleLogout = () => {
+    localStorage.clear();
+    localStorage.setItem('singout', true);
+    navigate('/login');
+  };
+
+  const income = localStorage.getItem('income');
+  const rent = localStorage.getItem('rent');
+  const household = localStorage.getItem('household');
+  const living = localStorage.getItem('living');
+  const extras = localStorage.getItem('extras');
+  const saved = localStorage.getItem('saved');
   const name = localStorage.getItem('name');
+  const input = `Write a brief report of no more than 100 words
+   detailing financial advice for ${name} considering the following
+   info on monthly expenses: income: ${income.toString()}, 
+   household: ${household.toString()}, living: ${living.toString()},
+   extras: ${extras}, saved: ${saved}.`
+  const [response, setResponse] = useState('');
 
   useEffect(() => {
     const sendMessage = async () => {
@@ -31,15 +46,9 @@ function Home_() {
     };
     sendMessage();
   }, []);
-
-  const handleLogout = () => {
-    localStorage.clear();
-    localStorage.setItem('singout', true);
-    navigate('/login');
-  };
   
   return (
-    <div className="flex w-full h-screen justify-center">
+    <div className="flex w-full h-auto justify-center pb-20">
       <nav className="w-[17.5%] h-full">
         <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100">
           <span class="sr-only">Open sidebar</span>
@@ -83,7 +92,7 @@ function Home_() {
                   </svg>
                   <span class="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
                 </button>
-              </li> 
+              </li>
             </ul>
           </div>
         </aside>

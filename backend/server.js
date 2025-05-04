@@ -105,15 +105,19 @@ app.post("/login", async (req, resp) => {
             {
                 const uid = findUser._id.toString();
                 const userFinance = await FinanceProfile.findOne({uid});
-                resp.status(201).json({ id: uid,
-                    name: findUser.name,
-                    income: userFinance.income,
-                    rent: userFinance.rent,
-                    household: userFinance.household,
-                    living: userFinance.living,
-                    extras: userFinance.extras,
-                    saved: userFinance.saved,
-                });
+                if(userFinance) {
+                    resp.status(201).json({ id: uid,
+                        name: findUser.name,
+                        income: userFinance.income,
+                        rent: userFinance.rent,
+                        household: userFinance.household,
+                        living: userFinance.living,
+                        extras: userFinance.extras,
+                        saved: userFinance.saved,
+                    });
+                } else {
+                    resp.status(300).json({id: uid });
+                }
             }
             else
             {
@@ -149,7 +153,7 @@ app.post("/chat", async (req, res) => {
 });
 
 app.post("/profile", async (req, res) => {
-    const { uid } = req.body;
+    const uid = req.body.uid;
 
     try {
         const findData = await FinanceProfile.findOneAndUpdate(

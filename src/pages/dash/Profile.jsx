@@ -121,11 +121,9 @@ function Profile() {
     if(result.status === 201) {
       localStorage.removeItem('registered');
       alert("Data manipuled correctly!");
-    } else if(result.status === 409) { 
-      alert(data.message);
-    } else if(result.status === 400) {
-      alert(data.message);
+      window.location.reload();
     } else {
+      console.log(data.message);
       alert("Something went wrong X(");
     }
   }
