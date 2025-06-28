@@ -1,71 +1,123 @@
-# Getting Started with Create React App
+# Revinance
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Revinance** – Your personalized financial assistant.  
+Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**, this AI‑powered application analyzes user data, provides insights and tailored advice to help users take control of their finances.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+    <table>
+        <tr>
+          <td><strong>Frontend:</strong></td>
+          <td align="center">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="35" title="React"/>&nbsp;
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="35" title="HTML5"/>&nbsp;
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="35" title="CSS3"/>&nbsp;
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="35" title="Tailwind CSS"/>
+          </td>
+        </tr>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+        <tr>
+            <td><strong>Backend:</strong></td>
+            <td>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
+            </td>
+        </tr>
+        
+        <tr>
+            <td><strong>AI / ML:</strong></td>
+            <td>     
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" width="35" title="ChatGPT" />           
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
+        
+            </td>
+        </tr>
+        
+        <tr>
+            <td><strong>Database & Storage:</strong></td>
+            <td>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="35" title="MongoDB"/>
+                <img src="https://raw.githubusercontent.com/github/explore/main/topics/json/json.png" width="35" title="JSON"/>
+            </td>
+        </tr>
+      </table>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Revinance/
+├── README.md                       # Project overview
+├── package.json                    # Root-level config, possibly managing the monorepo
+├── package-lock.json               # Lockfile for consistent dependency installs
+├── node_modules/                   # Auto-generated directory for installed dependencies (do not edit manually)
 
-### `npm run build`
+├── backend/                        # Node.js backend API and server logic
+│   ├── server.js                   # Express server entry point
+│   ├── node_modules/               # Auto-generated directory for installed dependencies (do not edit manually)
+│   ├── package.json                # Backend dependencies (Express, etc.)
+│   └── package-lock.json           # Backend dependency lock
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+├── public/                         # Static public files served by React
+│   ├── index.html                  # Main HTML file, root of the React app
+│   ├── favicon.ico                 # Site icon
+│   └── robots.txt                  # Rules for web crawlers
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+├── src/                            # Source code for the React frontend
+│   ├── index.js                    # React app entry point
+│   ├── App.js                      # Main component handling routes/layout logic
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+│   ├── assets/                     # Static media assets
+│   │   └── bg-img.jpg              # Background image used in the UI
 
-### `npm run eject`
+│   ├── components/                 # Reusable UI components
+│   │   └── diagram.jsx             # Component for visualizing user data or insights
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+│   ├── context/                    # Global state management (via React Context API)
+│   │   ├── AuthContext.jsx         # Authentication state and logic
+│   │   └── UserContext.jsx         # User data and shared state across components
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+│   ├── layouts/                    # Route-based layout wrappers
+│   │   ├── PrivateLayout.jsx       # Layout for authenticated/protected routes
+│   │   └── PublicLayout.jsx        # Layout for unauthenticated routes (e.g., login)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+│   ├── pages/                      # Top-level routed pages
+│   │   ├── Home.jsx                # Landing page (public)
+│   │   ├── Login.jsx               # User login form
+│   │   ├── Register.jsx            # User registration form
+│   │   └── dash/                   # Authenticated dashboard area
+│   │       ├── Home_.jsx           # Dashboard homepage with insights/charts
+│   │       ├── Profile.jsx         # Profile management (possibly linked to AI profile)
+│   │       └── Services.jsx        # Financial assistant services or AI advice tools
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+│   └── styles/                     # Global and modular CSS
+│       ├── App.css                 # Custom styles specific to App components
+│       └── index.css               # TailwindCSS directives and base styles
 
-## Learn More
+├── tailwind.config.js              # TailwindCSS configuration file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Screenshots
 
-### Code Splitting
+<img src="screenshots/1.png" alt="User dashboard preview" width="600"/>
+<img src="screenshots/2.png" alt="User dashboard preview" width="600"/>
+<img src="screenshots/3.png" alt="User dashboard preview" width="600"/>
+<img src="screenshots/4.png" alt="User dashboard preview" width="600"/>
+<img src="screenshots/5.png" alt="User dashboard preview" width="600"/>
+<img src="screenshots/6.png" alt="User dashboard preview" width="600"/>
+<img src="screenshots/7.png" alt="User dashboard preview" width="600"/>
+<img src="screenshots/8.png" alt="User dashboard preview" width="600"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Team & Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [Max Vilà Ruiz](https://github.com/MaxVilaRuiz)
+- [Pau Martínez](https://github.com/taopaipau)
+- [Aarón Quintanilla](https://github.com/aaronqintanilla)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Plantinance---HackUPC-2025
+This project is licensed under the MIT License.
