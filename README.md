@@ -14,14 +14,14 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="35" title="HTML5"/>&nbsp;
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="35" title="CSS3"/>&nbsp;
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="35" title="Tailwind CSS"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="35" title="Tailwind CSS"/>&nbsp;
           </td>
         </tr>
 
 <tr>
             <td><strong>Backend:</strong></td>
             <td>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>&nbsp;
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
             </td>
         </tr>
@@ -29,8 +29,8 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
 <tr>
             <td><strong>AI / ML:</strong></td>
             <td>     
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" width="35" title="ChatGPT" />           
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" width="35" title="ChatGPT" />&nbsp;         
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>&nbsp;
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
         
 </td>
@@ -39,8 +39,8 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
 <tr>
             <td><strong>Database & Storage:</strong></td>
             <td>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="35" title="MongoDB"/>
-                <img src="https://raw.githubusercontent.com/github/explore/main/topics/json/json.png" width="35" title="JSON"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="35" title="MongoDB"/>&nbsp;
+                <img src="https://raw.githubusercontent.com/github/explore/main/topics/json/json.png" width="35" title="JSON"/>&nbsp;
             </td>
         </tr>
       </table>
