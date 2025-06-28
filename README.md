@@ -14,7 +14,7 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="35" title="HTML5"/>&nbsp;
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="35" title="CSS3"/>&nbsp;
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="35" title="Tailwind CSS"/>&nbsp;
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Tailwind_CSS_Logo.svg" width="35" title="Tailwind CSS"/>&nbsp;
           </td>
         </tr>
 
