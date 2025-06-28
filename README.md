@@ -6,7 +6,7 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
 
 ## Tech Stack
 
-    <table>
+<table>
         <tr>
           <td><strong>Frontend:</strong></td>
           <td align="center">
@@ -18,7 +18,7 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
           </td>
         </tr>
 
-        <tr>
+<tr>
             <td><strong>Backend:</strong></td>
             <td>
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>
@@ -26,17 +26,17 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
             </td>
         </tr>
         
-        <tr>
+<tr>
             <td><strong>AI / ML:</strong></td>
             <td>     
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" width="35" title="ChatGPT" />           
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="35" title="Express.js"/>
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="35" title="JavaScript"/>&nbsp;
         
-            </td>
+</td>
         </tr>
         
-        <tr>
+<tr>
             <td><strong>Database & Storage:</strong></td>
             <td>
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="35" title="MongoDB"/>
@@ -48,6 +48,7 @@ Built during [HackUPC 2025](https://hackupc.com/) for the **Revolut Challenge**,
 
 ## Project Structure
 
+```
 Revinance/
 ├── README.md                       # Project overview
 ├── package.json                    # Root-level config, possibly managing the monorepo
@@ -97,6 +98,7 @@ Revinance/
 │       └── index.css               # TailwindCSS directives and base styles
 
 ├── tailwind.config.js              # TailwindCSS configuration file
+```
 
 
 ## Screenshots
@@ -120,4 +122,4 @@ Revinance/
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/) © License.
